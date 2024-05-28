@@ -17,7 +17,6 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--background);
   color: #fff;
-  min-height: 4000px;
 }
 
 /* Navbar */
@@ -274,6 +273,45 @@ body {
     cursor: pointer;
 }
 
+/* Footer Section */
+footer{
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+}
+
+footer .socials{
+    padding: 1rem 0;
+}
+
+footer .socials a{
+    color: #fff;
+    margin: 1rem;
+}
+
+footer .socials a:hover,
+footer .links a:hover{
+    color: var(--background);
+}
+
+footer .llinks{
+    margin-bottom: 1.4rem;
+}
+
+footer .links a{
+    color: #fff;
+    padding: 0.7rem 1rem;
+}
+
+footer .credit{
+    font-size: 0.8rem;
+}
+
+footer .credit a{
+    color: var(--background);
+    font-weight: 700;
+}
 /* Media Queries */
 
 /* laptop */

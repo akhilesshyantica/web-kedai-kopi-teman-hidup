@@ -85,6 +85,42 @@ body {
   display: none;
 }
 
+/* Navbar Search Form */
+.navbar .search-form{
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: #fff;
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  /* transform origin untuk menentukan sumbu atau porosnya */
+  transition: 0.3s;
+}
+
+.navbar .search-form.active{
+  transform: scaleY(1);
+}
+
+.navbar .search-form input{
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--background);
+  padding: 1rem;
+}
+
+.navbar .search-form label{
+  cursor: pointer;
+  font-size: 2rem;
+  margin-left: 1.5rem;
+  padding-right: 1.3rem;
+  color: var(--background);
+}
+
 /* Hero Section */
 
 .hero {
@@ -316,6 +352,12 @@ footer .credit a{
     color: var(--background);
     font-weight: 700;
 }
+
+
+
+
+
+
 /* Media Queries */
 
 /* laptop */
@@ -365,6 +407,12 @@ footer .credit a{
     transform: scaleX(0.2);
   }
 
+  .navbar .search-form{
+    width: 90%;
+    right: 2rem;
+  }
+
+
   .about .row {
     flex-wrap: wrap;
   }
@@ -403,6 +451,8 @@ footer .credit a{
   .contact .row form{
     padding-top: 0;
   }
+
+
 }
 
 /* mobile */

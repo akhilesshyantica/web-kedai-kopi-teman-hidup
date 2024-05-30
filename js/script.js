@@ -1,4 +1,4 @@
-// Toggle class active
+// Toggle class active untuk hamburger menu
 // toggle ini artinya, kalau sebelumnya ada jadi tidak ada dan kalau sebelumnya tidak ada jadi ada.
 
 const navbarNav = document.querySelector('.navbar-nav');
@@ -7,12 +7,28 @@ document.querySelector('#hamburger-menu').onclick = () => {
   navbarNav.classList.toggle('active');
 };
 
+// Toggle class active untuk search form
+const searchForm = document.querySelector('.search-form');
+const searchBox = document.querySelector('#search-box');
 
-// klik diluar sidebar untuk menghilangkan nav atau hamburger menu
+document.querySelector('#search-button').onclick = (e) => {
+  searchForm.classList.toggle('active');
+  searchBox.focus();
+  e.preventDefault();
+}
+
+
+
+// klik diluar elemen
 const hamburger = document.querySelector('#hamburger-menu');
+const searchBtn = document.querySelector('#search-button');
+
 
 document.addEventListener('click', function(e) {
     if(!hamburger.contains(e.target) && !navbarNav.contains(e.target)){
         navbarNav.classList.remove('active');
+    }
+    if(!searchBtn.contains(e.target) && !searchForm.contains(e.target)){
+        searchForm.classList.remove('active');
     }
 });

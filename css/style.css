@@ -273,6 +273,10 @@ body {
 
 .about .row .about-img img {
   width: 100%;
+  mask-image: url(../img/42879.svg);
+  mask-size: 80%;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 .about .row .content {

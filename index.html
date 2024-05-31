@@ -16,6 +16,12 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- App -->
+    <script src="src/app.js"></script>
   </head>
   <body>
     <!-- Navbar Start -->
@@ -47,7 +53,7 @@
       <!--  Shopping cart start-->
       <div class="shopping-cart">
         <div class="cart-item">
-          <img src="img/produk.jpg" alt="Produk 1">
+          <img src="img/produk.jpg" alt="Produk 1" />
           <div class="item-detail">
             <h3>Produk 1</h3>
             <div class="item-price">IDR 40K</div>
@@ -55,7 +61,7 @@
           <i data-feather="trash-2" class="remove-item"></i>
         </div>
         <div class="cart-item">
-          <img src="img/produk.jpg" alt="Produk 1">
+          <img src="img/produk.jpg" alt="Produk 1" />
           <div class="item-detail">
             <h3>Produk 2</h3>
             <div class="item-price">IDR 45K</div>
@@ -63,7 +69,7 @@
           <i data-feather="trash-2" class="remove-item"></i>
         </div>
         <div class="cart-item">
-          <img src="img/produk.jpg" alt="Produk 1">
+          <img src="img/produk.jpg" alt="Produk 1" />
           <div class="item-detail">
             <h3>Produk 3</h3>
             <div class="item-price">IDR 50K</div>
@@ -72,11 +78,7 @@
         </div>
       </div>
 
-
       <!-- Shopping cart end -->
-
-
-
     </nav>
     <!-- Navbar End -->
 
@@ -85,7 +87,6 @@
       <main class="content">
         <h1>Lebih Dari Sekedar <span>Kopi</span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, eaque!</p>
-   
       </main>
     </section>
 
@@ -149,89 +150,36 @@
     <!-- Menu Section End -->
 
     <!-- Products Section start -->
-    <section class="products" id="products">
+    <section class="products" id="products" x-data="products">
       <h2><span>Produk Unggulan</span> Kami</h2>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, deserunt! Id eius maiores pariatur vero?</p>
 
       <div class="row">
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-
-          <div class="product-image">
-            <img src="img/produk.jpg" alt="Produk 1" />
-          </div>
-
-          <div class="product-content">
-            <h3>Coffee Beans One</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="product-card">
+            <div class="product-icons">
+              <a href="#"><i data-feather="shopping-cart"></i></a>
+              <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
             </div>
 
-            <div class="product-price">
-              IDR 45K <span>IDR 60K</span>
+            <div class="product-image">
+              <img :src="`img/${item.img}`" :alt="item.name" />
             </div>
 
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
+            <div class="product-content">
+              <h3 x-text="item.name"></h3>
+              <div class="product-stars">
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star" class="star-full"></i>
+              </div>
 
-          <div class="product-image">
-            <img src="img/produk.jpg" alt="Produk 1" />
-          </div>
-
-          <div class="product-content">
-            <h3>Coffee Beans One</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
+              <div class="product-price"><span x-text="item.price"></span></div>
             </div>
-
-            <div class="product-price">
-              IDR 55K <span>IDR 65K</span>
-            </div>
-
           </div>
-        </div>
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-
-          <div class="product-image">
-            <img src="img/produk.jpg" alt="Produk 1" />
-          </div>
-
-          <div class="product-content">
-            <h3>Coffee Beans One</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-            </div>
-
-            <div class="product-price">
-              IDR 50K <span>IDR 60K</span>
-            </div>
-
-          </div>
-        </div>
+        </template>
       </div>
     </section>
     <!-- Products Section end -->
@@ -292,13 +240,12 @@
 
     <!-- Footer End -->
 
-
     <!-- Modal Box Item Details start -->
     <div class="modal" id="item-detail-modal">
       <div class="modal-container">
         <a href="#" class="close-icon"><i data-feather="x"></i></a>
         <div class="modal-content">
-          <img src="img/produk.jpg" alt="Produk 1">
+          <img src="img/produk.jpg" alt="Produk 1" />
           <div class="produk-content">
             <h3>Produk 1</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam excepturi quam architecto. Est, molestiae eveniet, pariatur tempore cum beatae, blanditiis deserunt veniam quibusdam eligendi rerum.</p>
@@ -310,19 +257,14 @@
               <i data-feather="star"></i>
             </div>
 
-            <div class="product-price">
-              IDR 45K <span>IDR 60K</span>
-            </div>
+            <div class="product-price">IDR 45K <span>IDR 60K</span></div>
             <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
           </div>
         </div>
       </div>
     </div>
 
-
-
     <!-- Modal Box Item Details end-->
-
 
     <!-- Feather Icons -->
     <script>
@@ -342,5 +284,18 @@ Photo by <a href="https://unsplash.com/@yaanapi?utm_content=creditCopyText&utm_m
 Photo by <a href="https://unsplash.com/@robbiedown?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Robbie Down</a> on <a href="https://unsplash.com/photos/white-ceramic-cup-with-saucer-on-brown-wooden-table-LI8inyHnm_A?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 Photo by <a href="https://unsplash.com/@ivanyeors?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ivan Yeo</a> on <a href="https://unsplash.com/photos/a-couple-of-bags-of-coffee-beans-vCWd-9EYEWI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  
+-->
+
+<!-- gambar coffee pack by
+Photo by <a href="https://unsplash.com/@ryan_riggins?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ryan Riggins</a> on <a href="https://unsplash.com/photos/black-and-white-plastic-pack-3l54bPRT6hQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+Photo by <a href="https://unsplash.com/@ryan_riggins?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ryan Riggins</a> on <a href="https://unsplash.com/photos/purple-and-white-plastic-pack-NJNznl8xbWk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+Photo by <a href="https://unsplash.com/@awrotker?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alexander Rotker</a> on <a href="https://unsplash.com/photos/waka-quality-instant-coffee-box-bydMjNfuO_4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+Photo by <a href="https://unsplash.com/@jontyson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jon Tyson</a> on <a href="https://unsplash.com/photos/three-brown-primo-passo-coffee-co-packs-KRedbshBxEk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+Photo by <a href="https://unsplash.com/@mockupbee?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">mockupbee</a> on <a href="https://unsplash.com/photos/a-roll-of-toilet-paper-ghsa1586bVU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   
 -->

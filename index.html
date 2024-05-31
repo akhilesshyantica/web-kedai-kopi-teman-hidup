@@ -38,7 +38,8 @@
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i>
+        <a href="#" id="shopping-cart-button"
+          ><i data-feather="shopping-cart"></i>
           <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
         </a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
@@ -54,30 +55,21 @@
 
       <!--  Shopping cart start-->
       <div class="shopping-cart">
-        <div class="cart-item">
-          <img src="img/produk.jpg" alt="Produk 1" />
-          <div class="item-detail">
-            <h3>Produk 1</h3>
-            <div class="item-price">IDR 40K</div>
+        <template x-for="(item, index) in $store.cart.items" x-keys="index">
+          <div class="cart-item">
+            <img :src="'img/$(item.img)'" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                <span x-text="item.quantity"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
+            </div>
           </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/produk.jpg" alt="Produk 1" />
-          <div class="item-detail">
-            <h3>Produk 2</h3>
-            <div class="item-price">IDR 45K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/produk.jpg" alt="Produk 1" />
-          <div class="item-detail">
-            <h3>Produk 3</h3>
-            <div class="item-price">IDR 50K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
+        </template>
       </div>
 
       <!-- Shopping cart end -->
@@ -160,7 +152,7 @@
         <template x-for="(item, index) in items" x-key="index">
           <div class="product-card">
             <div class="product-icons">
-              <a href="#" @click.prevent="$store.cart.add(item)" >
+              <a href="#" @click.prevent="$store.cart.add(item)">
                 <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <use href="img/feather-sprite.svg#shopping-cart" />
                 </svg>

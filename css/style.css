@@ -243,6 +243,12 @@ body {
   margin: 1rem auto;
   cursor: pointer;
 }
+
+.form-container .checkout-button.disabled{
+  background-color: gray;
+  cursor: not-allowed;
+}
+
 /* Hero Section */
 
 .hero {
